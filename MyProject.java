@@ -28,69 +28,78 @@ public class JFrame extends javax.swing.JFrame {
         jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("jButton1");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
+        jLayeredPane1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 270, 60, 20));
 
-        jButton2.setText("jButton2");
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
+        jLayeredPane1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 300, 60, 20));
 
-        jButton3.setText("jButton3");
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
+        jLayeredPane1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 330, 60, 20));
 
-        jButton4.setText("jButton4");
+        jButton4.setBorderPainted(false);
+        jButton4.setContentAreaFilled(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, -1, -1));
+        jLayeredPane1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 60, 20));
 
-        jButton5.setText("jButton5");
+        jButton5.setBorderPainted(false);
+        jButton5.setContentAreaFilled(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, -1, -1));
+        jLayeredPane1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 60, 20));
 
-        jButton6.setText("jButton6");
+        jButton6.setBorderPainted(false);
+        jButton6.setContentAreaFilled(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, -1, -1));
+        jLayeredPane1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, 60, 20));
 
-        jButton7.setText("jButton7");
+        jButton7.setToolTipText("");
+        jButton7.setBorderPainted(false);
+        jButton7.setContentAreaFilled(false);
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, -1, -1));
+        jLayeredPane1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 60, 20));
 
-        jButton8.setText("jButton8");
+        jButton8.setBorderPainted(false);
+        jButton8.setContentAreaFilled(false);
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, -1, -1));
+        jLayeredPane1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 60, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/myimage.png"))); // NOI18N
         jLayeredPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 619, 711));

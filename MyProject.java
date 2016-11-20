@@ -4,6 +4,7 @@ public class JFrame extends javax.swing.JFrame {
 
     public JFrame() {
         initComponents();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -22,9 +23,11 @@ public class JFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Coffee machine by Mark Parfeniuk");
 
         jLayeredPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +90,7 @@ public class JFrame extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, -1, -1));
+        jLayeredPane1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/myimage.png"))); // NOI18N
         jLayeredPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 619, 711));
@@ -106,20 +109,20 @@ public class JFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
     
-    public ButtonHandler printButton = new ButtonHandler();
+    public ButtonHandler PullButton = new ButtonHandler();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        printButton.buttonActive(evt);
+        PullButton.buttonActive(evt);
     }                                        
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        printButton.buttonActive(evt);
+        PullButton.buttonActive(evt);
     }                                        
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        printButton.buttonActive(evt);
+        PullButton.buttonActive(evt);
     }                                        
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         

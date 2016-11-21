@@ -16,6 +16,27 @@ public class ButtonHandler {
     }
     
     public void buttonActive(java.awt.event.ActionEvent event){
-        System.out.println("Latte");
+        System.out.println("Espresso");
+    }
+    public void buttonActive1(java.awt.event.ActionEvent event){
+        System.out.println("Lungo Entkoff");
+    }
+    public void buttonActive2(java.awt.event.ActionEvent event){
+        System.out.println("Cappuccino");
+    }
+    public void buttonActive3(java.awt.event.ActionEvent event){
+        System.out.println("Cappuccino Vanilla");
+    }
+    public void buttonActive4(java.awt.event.ActionEvent event){
+        System.out.println("Lungo");
+    }
+    public void buttonActive5(java.awt.event.ActionEvent event){
+        System.out.println("Latte Macchiato");
+    }
+    public void buttonActive6(java.awt.event.ActionEvent event){
+        System.out.println("Kakao");
+    }
+    public void buttonActive7(java.awt.event.ActionEvent event){
+        System.out.println("Tee mit Milch");
     }
 }

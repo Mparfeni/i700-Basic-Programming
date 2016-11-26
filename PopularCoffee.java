@@ -1,11 +1,6 @@
 package coffeemachine;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.Writer;
+import java.io.*;
 import java.util.HashMap;
 
 public class PopularCoffee {
@@ -13,39 +8,44 @@ public class PopularCoffee {
     private String titles;
     public static HashMap<String, Integer> coffeeStatistics;
     
+
     public PopularCoffee(){
-        fileName = "CoffeeNames.txt";
+        String basePath = System.getProperty("user.dir");
+        fileName = basePath + "/src/coffeemachine/CoffeeNames.txt";
         titles = " " ;
-        coffeeStatistics = new HashMap<>();
+        coffeeStatistics = new HashMap<String, Integer>();
     }
-    
-    public void writeStatistics(){
-         try {
-            
-            FileWriter fw = new FileWriter(fileName);
-            Writer output = new BufferedWriter(fw);
+
+    public void writeFile(String coffeeName){
+        try {
+            FileOutputStream fw = new FileOutputStream(fileName, false);
+            ObjectOutputStream output = new ObjectOutputStream(fw);
             int size = coffeeStatistics.size();
-            for(int i=0;i<size;i++) {
-                output.write(" " + coffeeStatistics.get(i).toString() + "\n");
+
+            Integer count = coffeeStatistics.get(coffeeName);
+
+            if (count != null){
+                coffeeStatistics.put(coffeeName, count + 1);
+            } else {
+                coffeeStatistics.put(coffeeName, 1);
             }
+            System.out.println(coffeeStatistics.toString());
+            output.writeObject(coffeeStatistics);
+
             output.close();
         } catch (Exception e) {
             System.out.println("I cannot create that file");
         }
     }
-     public void readFile() {
-       try {
-        BufferedReader reader = new BufferedReader(new FileReader(new File(fileName)));
-        String line;
-        while ((line = reader.readLine()) != null) {
-            String[] temp = line.split(",");
-            String Key = temp[0];
-            String Value = temp[1];
-            coffeeStatistics.put(Key, Integer.parseInt(Value));
-            reader.close();
-        }}catch(Exception e){
-            System.out.println("I cannor read that file");
-         }
-       
-     }
+    public void readFile() {
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(fileName)));
+            coffeeStatistics = (HashMap<String, Integer>) ois.readObject();
+            System.out.println(coffeeStatistics.toString());
+
+        } catch (Exception e){
+             System.out.println("I cannot read that file");
+        }
+
+    }
 }

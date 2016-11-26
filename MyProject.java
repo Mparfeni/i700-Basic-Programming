@@ -1,10 +1,13 @@
 package coffeemachine;
 
-public class JFrame extends javax.swing.JFrame {
+import static coffeemachine.PopularCoffee.coffeeStatistics;
 
+public class JFrame extends javax.swing.JFrame {
+    public ButtonHandler PullButton = new ButtonHandler();
+    
     public JFrame() {
         initComponents();
-        
+        PullButton.pc.readFile();
     }
 
     @SuppressWarnings("unchecked")
@@ -20,6 +23,9 @@ public class JFrame extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -101,6 +107,19 @@ public class JFrame extends javax.swing.JFrame {
         });
         jLayeredPane1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 60, 30));
 
+        jButton9.setText("Get Stats");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jLayeredPane1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 90, 30));
+
+        jTextPane1.setEditable(false);
+        jScrollPane2.setViewportView(jTextPane1);
+
+        jLayeredPane1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 110, 160));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/myimage.png"))); // NOI18N
         jLayeredPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 619, 711));
 
@@ -108,20 +127,20 @@ public class JFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>                        
-    
-    public ButtonHandler PullButton = new ButtonHandler();
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         PullButton.buttonActive(evt);
-        
     }                                        
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -150,6 +169,10 @@ public class JFrame extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         PullButton.buttonActive7(evt);
+    }                                        
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        jTextPane1.setText(coffeeStatistics.toString());
     }                                        
 
     
@@ -183,7 +206,10 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextPane jTextPane1;
     // End of variables declaration                   
 }

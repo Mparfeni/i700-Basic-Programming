@@ -21,17 +21,15 @@ public class PopularCoffee {
             FileOutputStream fw = new FileOutputStream(fileName, false);
             ObjectOutputStream output = new ObjectOutputStream(fw);
             int size = coffeeStatistics.size();
-
+            
             Integer count = coffeeStatistics.get(coffeeName);
-
+            
             if (count != null){
                 coffeeStatistics.put(coffeeName, count + 1);
             } else {
                 coffeeStatistics.put(coffeeName, 1);
             }
-            System.out.println(coffeeStatistics.toString());
             output.writeObject(coffeeStatistics);
-
             output.close();
         } catch (Exception e) {
             System.out.println("I cannot create that file");
@@ -42,10 +40,8 @@ public class PopularCoffee {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(fileName)));
             coffeeStatistics = (HashMap<String, Integer>) ois.readObject();
             System.out.println(coffeeStatistics.toString());
-
         } catch (Exception e){
              System.out.println("I cannot read that file");
         }
-
     }
 }

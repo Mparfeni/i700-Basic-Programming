@@ -1,8 +1,9 @@
 package coffeemachine;
 
 import static coffeemachine.PopularCoffee.coffeeStatistics;
+import java.util.Iterator;
 
-public class JFrame extends javax.swing.JFrame {
+public class MyProject extends javax.swing.JFrame {
     public ButtonHandler PullButton = new ButtonHandler();
     
     public JFrame() {
@@ -118,7 +119,7 @@ public class JFrame extends javax.swing.JFrame {
         jTextPane1.setEditable(false);
         jScrollPane2.setViewportView(jTextPane1);
 
-        jLayeredPane1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 110, 160));
+        jLayeredPane1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 120, 160));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/myimage.png"))); // NOI18N
         jLayeredPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 619, 711));
@@ -172,7 +173,12 @@ public class JFrame extends javax.swing.JFrame {
     }                                        
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        jTextPane1.setText(coffeeStatistics.toString());
+        StringBuilder output = new StringBuilder();
+           Iterator nextValue = PopularCoffee.coffeeStatistics.entrySet().iterator();
+        while (nextValue.hasNext()){
+            output.append(nextValue.next() + "\n");
+        }
+        jTextPane1.setText(output.toString());
     }                                        
 
     

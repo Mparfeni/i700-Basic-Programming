@@ -1,7 +1,8 @@
 package coffeemachine;
 
-import static coffeemachine.PopularCoffee.coffeeStatistics;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MyProject extends javax.swing.JFrame {
     public ButtonHandler PullButton = new ButtonHandler();
@@ -11,7 +12,7 @@ public class MyProject extends javax.swing.JFrame {
         PullButton.pc.readFile();
     }
 
-    @SuppressWarnings("unchecked")                        
+    @SuppressWarnings("unchecked")                       
     private void initComponents() {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
@@ -113,14 +114,14 @@ public class MyProject extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        jLayeredPane1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 90, 30));
+        jLayeredPane1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 100, 20));
 
         jTextPane1.setEditable(false);
         jScrollPane2.setViewportView(jTextPane1);
 
-        jLayeredPane1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 120, 160));
+        jLayeredPane1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 130, 140));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/myimage.png")));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/myimage.png"))); 
         jLayeredPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 619, 711));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -137,43 +138,91 @@ public class MyProject extends javax.swing.JFrame {
         );
 
         pack();
-    }                        
+    }                       
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         PullButton.buttonActive(evt);
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }                                        
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         PullButton.buttonActive1(evt);
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/Latte.png")));
     }                                        
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         PullButton.buttonActive2(evt);
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/myimage.png")));
     }                                        
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         PullButton.buttonActive3(evt);
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/KakaoCappuccino.png")));
     }                                        
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         PullButton.buttonActive4(evt);
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/Latte.png")));
     }                                        
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         PullButton.buttonActive5(evt);
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/Latte.png")));
     }                                        
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         PullButton.buttonActive6(evt);
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/KakaoCappuccino.png")));
     }                                        
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         PullButton.buttonActive7(evt);
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/myimage.png")));
     }                                        
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         StringBuilder output = new StringBuilder();
-           Iterator nextValue = PopularCoffee.coffeeStatistics.entrySet().iterator();
+        Iterator nextValue = PopularCoffee.coffeeStatistics.entrySet().iterator();
         while (nextValue.hasNext()){
             output.append(nextValue.next() + "\n");
         }
@@ -202,7 +251,7 @@ public class MyProject extends javax.swing.JFrame {
         }
     }
 
-    // Variables declaration                   
+    // Variables declaration                     
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

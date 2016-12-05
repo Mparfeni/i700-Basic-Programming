@@ -1,18 +1,37 @@
-package coffeemachine;
+package Main;
 
+import statistics.PopularCoffee;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MyProject extends javax.swing.JFrame {
-    public ButtonHandler PullButton = new ButtonHandler();
+/**This class will draw our GUI.
+ * @author ASUS
+ */
+public class MainMachineFrame extends javax.swing.JFrame {
+
+    /**Initialize ButtonHandler variable */
+    public ButtonHandler pullButton; 
+
+    /**Initialize PopularCoffee variable*/
+    public static PopularCoffee pc;
     
-    public JFrame() {
+    /**This method will draw all the elements and check,
+     * if we have file with statistics
+     */
+    public MainMachineFrame() {
         initComponents();
-        PullButton.pc.readFile();
+        try{
+            pc = new PopularCoffee();
+            pc.initializeStatistics();
+        }catch (Exception e){
+            System.out.println("Something went wrong: " + e);
+        }
+        pullButton = new ButtonHandler(pc);
     }
 
-    @SuppressWarnings("unchecked")                       
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
@@ -121,8 +140,8 @@ public class MyProject extends javax.swing.JFrame {
 
         jLayeredPane1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 130, 140));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/myimage.png"))); 
-        jLayeredPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 619, 711));
+        jLabel1.setIcon(new javax.swing.ImageIcon("images/myimage.png"));
+        jLayeredPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 620, 710));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -138,99 +157,98 @@ public class MyProject extends javax.swing.JFrame {
         );
 
         pack();
-    }                       
+    }// </editor-fold>                        
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        PullButton.buttonActive(evt);
+        pullButton.buttonPressed(evt, "Espresso");
         try {
             Thread.sleep(10000);
         } catch (InterruptedException ex) {
-            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainMachineFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        jLabel1.setIcon(new javax.swing.ImageIcon("images/myimage.png"));
     }                                        
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        PullButton.buttonActive1(evt);
+        pullButton.buttonPressed(evt, "Lungo Entkoff");
         try {
             Thread.sleep(10000);
         } catch (InterruptedException ex) {
-            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainMachineFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/Latte.png")));
+        jLabel1.setIcon(new javax.swing.ImageIcon("images/Latte.png"));
     }                                        
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        PullButton.buttonActive2(evt);
+        pullButton.buttonPressed(evt, "Cappuccino");
         try {
             Thread.sleep(10000);
         } catch (InterruptedException ex) {
-            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainMachineFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/myimage.png")));
+        jLabel1.setIcon(new javax.swing.ImageIcon("images/myimage.png"));
     }                                        
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        PullButton.buttonActive3(evt);
+        pullButton.buttonPressed(evt, "Cappuccino Vanilla");
         try {
             Thread.sleep(10000);
         } catch (InterruptedException ex) {
-            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainMachineFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/KakaoCappuccino.png")));
+        jLabel1.setIcon(new javax.swing.ImageIcon("images/KakaoCappuccino.png"));
     }                                        
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        PullButton.buttonActive4(evt);
+        pullButton.buttonPressed(evt, "Lungo");
         try {
             Thread.sleep(10000);
         } catch (InterruptedException ex) {
-            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainMachineFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/Latte.png")));
+        jLabel1.setIcon(new javax.swing.ImageIcon("images/Latte.png"));
     }                                        
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        PullButton.buttonActive5(evt);
+        pullButton.buttonPressed(evt, "Latte Macchiato");
         try {
             Thread.sleep(10000);
         } catch (InterruptedException ex) {
-            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainMachineFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/Latte.png")));
+        jLabel1.setIcon(new javax.swing.ImageIcon("images/Latte.png"));
     }                                        
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        PullButton.buttonActive6(evt);
+        pullButton.buttonPressed(evt, "Kakao");
         try {
             Thread.sleep(10000);
         } catch (InterruptedException ex) {
-            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainMachineFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/KakaoCappuccino.png")));
+        jLabel1.setIcon(new javax.swing.ImageIcon("images/KakaoCappuccino.png"));
     }                                        
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        PullButton.buttonActive7(evt);
+        pullButton.buttonPressed(evt, "Tee mit mich");
         try {
             Thread.sleep(10000);
         } catch (InterruptedException ex) {
-            Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainMachineFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coffeemachine/myimage.png")));
+        jLabel1.setIcon(new javax.swing.ImageIcon("images/myimage.png"));
     }                                        
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        pc.sorting();
         StringBuilder output = new StringBuilder();
-        Iterator nextValue = PopularCoffee.coffeeStatistics.entrySet().iterator();
+        Iterator nextValue = pc.coffeeStatistics.entrySet().iterator();
         while (nextValue.hasNext()){
             output.append(nextValue.next() + "\n");
         }
         jTextPane1.setText(output.toString());
     }                                        
 
-    
-   
     public static void main(String args[]) {
         
         try {
@@ -241,17 +259,17 @@ public class MyProject extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMachineFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMachineFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMachineFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMachineFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     }
 
-    // Variables declaration                     
+    // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -264,5 +282,6 @@ public class MyProject extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextPane jTextPane1;                  
+    private javax.swing.JTextPane jTextPane1;
+    // End of variables declaration                   
 }

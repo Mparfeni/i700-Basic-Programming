@@ -1,47 +1,56 @@
-package coffeemachine;
+package statistics;
 
-import java.io.*;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Map;
 
 public class PopularCoffee {
+
     private String fileName;
-    private String titles;
-    public static HashMap<String, Integer> coffeeStatistics;
-    
-
-    public PopularCoffee(){
-        String basePath = System.getProperty("user.dir");
-        fileName = basePath + "/src/coffeemachine/CoffeeNames.txt";
-        titles = " " ;
+    private FileHandler fh;
+    public HashMap<String, Integer> coffeeStatistics;
+   
+    public PopularCoffee() throws IOException{ 
         coffeeStatistics = new HashMap<String, Integer>();
+        fileName = "statistics/CoffeeNames.txt";
+        fh = new FileHandler();
     }
-
-    public void writeFile(String coffeeName){
-        try {
-            FileOutputStream fw = new FileOutputStream(fileName, false);
-            ObjectOutputStream output = new ObjectOutputStream(fw);
-            int size = coffeeStatistics.size();
+    
+    public void initializeStatistics(){
+        coffeeStatistics = fh.readFile(fileName);
+    }
+    
+    public void writeToStatistics(String coffeeName){
+        incrementEntry(coffeeName);
+        fh.writeFile(coffeeStatistics, fileName);
+    }
+    
+    private void incrementEntry(String coffeeName){
+        Integer count = coffeeStatistics.get(coffeeName);
             
-            Integer count = coffeeStatistics.get(coffeeName);
-            
-            if (count != null){
-                coffeeStatistics.put(coffeeName, count + 1);
-            } else {
-                coffeeStatistics.put(coffeeName, 1);
-            }
-            output.writeObject(coffeeStatistics);
-            output.close();
-        } catch (Exception e) {
-            System.out.println("I cannot create that file");
+        if (count != null){
+            coffeeStatistics.put(coffeeName, count + 1);
+        } else {
+            coffeeStatistics.put(coffeeName, 1);
         }
     }
-    public void readFile() {
-        try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(fileName)));
-            coffeeStatistics = (HashMap<String, Integer>) ois.readObject();
-            System.out.println(coffeeStatistics.toString());
-        } catch (Exception e){
-             System.out.println("I cannot read that file");
-        }
+    
+    public HashMap<String, Integer>  getCoffeeStatistics(){
+        return this.coffeeStatistics;
     }
-}
+    
+    public void sorting(){
+        Object[] a = coffeeStatistics.entrySet().toArray();
+        Arrays.sort(a, new Comparator() {
+    public int compare(Object o1, Object o2) {
+        return ((Map.Entry<String, Integer>) o2).getValue().compareTo(((Map.Entry<String, Integer>) o1).getValue());
+    }
+    });
+    for (Object e : a) {
+    System.out.println(((Map.Entry<String, Integer>) e).getKey() + " : "
+            + ((Map.Entry<String, Integer>) e).getValue());
+    }
+    }}
+   

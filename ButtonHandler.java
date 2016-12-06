@@ -1,5 +1,6 @@
 package Main;
 
+import availability.CoffeeType;
 import statistics.PopularCoffee;
 import java.applet.Applet;
 import java.applet.AudioClip;
@@ -11,8 +12,11 @@ import java.net.URL;
  */
 public class ButtonHandler { 
     private PopularCoffee pc;
+    private CoffeeType coffeeCount;
+    
     public ButtonHandler(PopularCoffee popularCoffee){
         pc = popularCoffee;
+        coffeeCount = new CoffeeType();
     }
 
     /**This method will play music*/
@@ -30,7 +34,12 @@ public class ButtonHandler {
     public void buttonPressed(java.awt.event.ActionEvent event, String coffeeName){
         System.out.println(coffeeName);
         pc.writeToStatistics(coffeeName);
+        for(int i = 0; i<CoffeeType.allCoffies.size(); i++){
+            String oneCoffee = CoffeeType.allCoffies.get(i).getName();
+            if (oneCoffee == coffeeName){
+                CoffeeType.allCoffies.get(i).setAmount();
+            }     
+        }
         playMusic("Coffee");
     }
 }
-

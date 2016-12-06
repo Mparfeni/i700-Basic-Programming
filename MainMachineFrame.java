@@ -1,5 +1,6 @@
 package Main;
 
+import availability.CoffeeType;
 import statistics.PopularCoffee;
 import java.util.Iterator;
 import java.util.logging.Level;
@@ -16,6 +17,8 @@ public class MainMachineFrame extends javax.swing.JFrame {
     /**Initialize PopularCoffee variable*/
     public static PopularCoffee pc;
     
+    public CoffeeType ct;
+    
     /**This method will draw all the elements and check,
      * if we have file with statistics
      */
@@ -28,6 +31,7 @@ public class MainMachineFrame extends javax.swing.JFrame {
             System.out.println("Something went wrong: " + e);
         }
         pullButton = new ButtonHandler(pc);
+        ct = new CoffeeType();
     }
 
     @SuppressWarnings("unchecked")
@@ -46,6 +50,9 @@ public class MainMachineFrame extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextPane2 = new javax.swing.JTextPane();
+        jButton10 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -140,8 +147,21 @@ public class MainMachineFrame extends javax.swing.JFrame {
 
         jLayeredPane1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 130, 140));
 
+        jTextPane2.setEditable(false);
+        jScrollPane3.setViewportView(jTextPane2);
+
+        jLayeredPane1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 130, 140));
+
+        jButton10.setText("jButton10");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        jLayeredPane1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 100, 20));
+
         jLabel1.setIcon(new javax.swing.ImageIcon("images/myimage.png"));
-        jLayeredPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 620, 710));
+        jLayeredPane1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 620, 710));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,7 +250,7 @@ public class MainMachineFrame extends javax.swing.JFrame {
     }                                        
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        pullButton.buttonPressed(evt, "Tee mit mich");
+        pullButton.buttonPressed(evt, "Tee mit Mich");
         try {
             Thread.sleep(10000);
         } catch (InterruptedException ex) {
@@ -248,6 +268,16 @@ public class MainMachineFrame extends javax.swing.JFrame {
         }
         jTextPane1.setText(output.toString());
     }                                        
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        String output = "";
+        for(int i = 0; i<CoffeeType.allCoffies.size(); i++){
+            String coffeeamount = Integer.toString(CoffeeType.allCoffies.get(i).amount);
+            String coffeename = CoffeeType.allCoffies.get(i).getName();
+            output += coffeename + " - " + coffeeamount + "\n";
+            jTextPane2.setText(output);
+        }
+    }                                         
 
     public static void main(String args[]) {
         
@@ -271,6 +301,7 @@ public class MainMachineFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -282,6 +313,8 @@ public class MainMachineFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JTextPane jTextPane2;
     // End of variables declaration                   
 }
